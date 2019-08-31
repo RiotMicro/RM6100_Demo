@@ -1,0 +1,31 @@
+{
+    "config": {
+        "test-type": {
+            "help": "The test type to build. Options are DEMO_NONE or DEMO_DWEET_SIGNAL",
+            "macro_name": "MBED_APP_CONF_TEST_TYPE",
+            "value": "DEMO_DWEET_SIGNAL"
+        },
+        "trace-level": {
+            "help": "Options are TRACE_LEVEL_ERROR,TRACE_LEVEL_WARN,TRACE_LEVEL_INFO,TRACE_LEVEL_DEBUG",
+            "macro_name": "MBED_TRACE_MAX_LEVEL",
+            "value": "TRACE_LEVEL_WARN"
+        },
+        "dweet-page": {
+            "help": "Name of dweet.io page which the device will send to it (The page can be viewed at https://dweet.io/follow/PAGE_NAME)",
+            "macro_name": "MBED_APP_CONF_DWEET_PAGE",
+            "value": "\"RM6100_DEMO\""
+        }
+    },
+    "macros": ["ENABLE_SEGGER_RTT"],
+    "target_overrides": {
+        "*": {
+            "target.network-default-interface-type": "CELLULAR",
+            "mbed-trace.enable": true,
+            "cellular.debug-at": false,
+            "cellular.use-apn-lookup": false,
+            "nsapi.default-cellular-plmn": 0,
+            "nsapi.default-cellular-sim-pin": "\"1234\"",
+            "nsapi.default-cellular-apn": 0
+        }
+    }
+}
